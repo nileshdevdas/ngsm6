@@ -1,0 +1,315 @@
+ON a linux 
+apt-get install node 
+yum install node 
+brew install node 
+setup.msi 
+
+How did npm come in to my system 
+i install nodejs (It comes with nodejs)
+
+How did the ng come in to my machine ? 
+npm install -g @angular/cli@6.5
+
+ng new <projectName>
+ng serve 
+ng build 
+ng generate component | module | pipe | directive | guard | route
+ng test 
+ng .. 
+
+---------------------
+
+
+
+Browser 
+angular runs inside the browser 
+angular components works inside the frameworks 
+- component (controller + view) (Par of the tree )
+- services  *(Singleton )
+- directives 
+- pipes (Traformers)
+- routes / Route gaurds 
+- modules (Root)
+
+Angular is written in type script ---> Generates javascript 
+angular has angular/cli 
+ng new <projectname> 
+
+
+https://github.com/nileshdevdas
+
+
+https://github.com/nileshdevdas/ngsm6
+
+
+
+
+
+i need to check my system: 
+
+
+npm -v 
+node -v 
+
+mkdir typescriptdemos 
+
+cd typescriptdemos 
+
+c:\typescriptdemos>npm init -y 
+
+dir : 
+
+npm install -g typescript
+
+tsc 
+
+typescript compiler 
+
+
+you compile files using tsc 
+
+.ts ---> tsc ----> .js ---> node ---> output 
+--------------------------------------------------------------
+
+extension are .ts 
+
+
+class Employee {
+	
+	constructor(){
+		// constructors are generally used for initialization 
+	}
+
+	test():String {
+
+		return "texx";
+	}
+
+}
+
+tsc   abc.ts 
+
+
+How can i compile a ts 
+
+tsc filename.ts 
+
+
+How can i run a compiled ts (.js)
+
+node  filename.js 
+
+
+how can i  us a one class in another file 
+export class ClassName{} // this is the class that you wish to use 
+
+
+import {classnmae} from './classfile'
+
+import  className  from './classfile'
+in this case the class was default 
+
+
+i want 2 models 
+	User 
+	Group 
+
+i want DAO Controller 
+	
+	createUser(); 
+
+	listUsers(); 
+
+	i want to set the group for each user 
+
+and print the each user with it details 
+
+models 
+dao 
+
+a) import 
+b) how to export 
+c) how delcare classes 
+d) how to use constructors 
+e) how define varibale (object levels)
+f) how to invoke classes 
+g) how to invoke methods 
+h) how to use lambda 
+i) how to use namespaces 
+j) how to run the code 
+i) the method in doa come from an interface 
+--------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
