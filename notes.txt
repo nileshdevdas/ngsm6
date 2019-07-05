@@ -1,144 +1,659 @@
-ON a linux 
-apt-get install node 
-yum install node 
-brew install node 
-setup.msi 
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+}
 
-How did npm come in to my system 
-i install nodejs (It comes with nodejs)
+apply plugin: 'io.spring.dependency-management'
 
-How did the ng come in to my machine ? 
-npm install -g @angular/cli@6.5
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
-ng new <projectName>
-ng serve 
-ng build 
-ng generate component | module | pipe | directive | guard | route
-ng test 
-ng .. 
-
----------------------
-
-
-
-Browser 
-angular runs inside the browser 
-angular components works inside the frameworks 
-- component (controller + view) (Par of the tree )
-- services  *(Singleton )
-- directives 
-- pipes (Traformers)
-- routes / Route gaurds 
-- modules (Root)
-
-Angular is written in type script ---> Generates javascript 
-angular has angular/cli 
-ng new <projectname> 
-
-
-https://github.com/nileshdevdas
-
-
-https://github.com/nileshdevdas/ngsm6
-
-
-
-
-
-i need to check my system: 
-
-
-npm -v 
-node -v 
-
-mkdir typescriptdemos 
-
-cd typescriptdemos 
-
-c:\typescriptdemos>npm init -y 
-
-dir : 
-
-npm install -g typescript
-
-tsc 
-
-typescript compiler 
-
-
-you compile files using tsc 
-
-.ts ---> tsc ----> .js ---> node ---> output 
---------------------------------------------------------------
-
-extension are .ts 
-
-
-class Employee {
-	
-	constructor(){
-		// constructors are generally used for initialization 
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
 	}
+}
 
-	test():String {
+repositories {
+	mavenCentral()
+}
 
-		return "texx";
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+a) Spring inializr 
+b) SPring Cli 
+c) STS 
+d) Manual 
+
+
+========================================
+Contents :- 
+|----src 
+	  |----main 
+	  	     |--- -java 
+	  	     		 |=====MyService.java 
+	  	     resources 
+	  	     		 |----static 
+	  	     		 |----templates 
+	  	     		 |--- application.properties *
+
+	  	     test 
+	  	       |-----java 
+	  	       			|---- unittestcases.java 
+	  	       |----resources 
+	  	       			|--- test.properties 
+
+	  |---pom.xml / build.gradle  
+	  		|---- 
+	  			Parent 
+	  				|--- the spring-boot parent version 
+	  			Dependency 
+	  				|--- features 
+	  			Build 
+	  				= plugin ---> Fat Jar 
+
+
+-------------------------------------------------------------------
+where should i copy the .m2
+
+start --> run .  --> home dir 
+
+.m2
+
+-------------------------------------------------------------------
+
+
+
+Service works with the following 
+
+1.  GET, PUT, POST, HEAD, DELETE, OPTIONS
+
+C(POST) R(GET) U (PUT) D(DELETE)
+
+/employee/{1}  (GET)
+/employee       (Post)
+/employee       (PUT)
+ {id}
+/employee      (Delete)
+
+
+Where will is ave update delete ? 
+Spring data 
+Spring jpa
+Spring jdbc
+
+
+
+
+
+
+
+-----------------------------------------------------------------
+1. .m2 to be in place 
+2.  STS + Java 
+3.  STS is running 
+4.  Ping and check you have internet connectivity 
+
+Objective is to write a service : 
+	1. Devtools 
+	2. Actuator 
+
+That manages its employees with crud operation 
+every time the employee is created you would  be 
+storing it in some db and then send mail to of successful creation *
+
+b) Register this services with Eurekaa server (Create a eurekaa server )
+
+c)  write a client to access the application 
+
+
+d) Enable the mornitoring and Circuit breaker patterns 
+	//
+
+
+
+
+
+https://github.com/nileshdevdas/microservice2.git
+https://github.com/nileshdevdas/microservice3.git
+
+
+
+
+
+
+public double convert(String  currencya,String currencyb , double amount ){}
+
+
+byte sream 
+array 
+inputstreams 
+
+1. Create a new Spring Starter project 
+2. Add Web , Actucator , Devtools , Discoveryclient 
+
+
+https://github.com/nileshdevdas/microservice2.git
+https://github.com/nileshdevdas/microservice3.git
+https://github.com/nileshdevdas/microservices3.git
+
+
+
+
+Spring is a opiniated framework (Production Ready)
+Fat Jars --> runnable on the production 
+a) via Docker 
+b) Direct 
+c) Via and Paas Framework like (Heroku, PCF)
+
+Spring has two parts 
+a) it spring boot 
+	--> is devtools 
+	--> actuators 
+	---> web 
+	---> loggers 
+	---> jpa 
+	---> messaging 
+	---> mail 
+	---> doa
+
+b) it spring cloud 
+	---> eurekaa 
+	---> hystrix 
+	---> ribbon 
+	===> zuul 
+	---> zipkin 
+	---> cloud related 
+
+3 ways to manage the configuration of teh spring boot 
+application.properties / application.yaml
+pom.xml / build.gradle 
+@Bean /@Con/// configure 
+
+
+4. WEb --> tomcat to jetty 
+
+5. How to write a webservice 
+
+a. you define a class 
+	@RestController 
+	@RequestMapping(path)
+
+
+	@RequstMapping --> level of your method root/method
+
+b.  You can do content negotiation 
+	XML --> XMLRootElement ---> XML 
+
+c.  how pass parameter to the method 
+	/employee/1
+
+d.  AutoWiring --> Dependency injection 
+	i) you saying lookup the bean and find the instance 
+		dependecy Injection --> IoC (Inversion of Control...)
+
+
+
+Service are autonomous ---> 
+Fat jar / run the whole application 
+static // html 
+services 
+
+
+
+We need word to be studies (EcoSystem)
+A Registry --> Where all the service register them selv 
+Yelow pages (Eureka)
+
+
+
+
+
+How do i write a client : 
+restTemplate.get
+			.post 
+			.put 
+
+
+how does the Loadbalancer ---> 
+	Dependency INjection (Autowrired)
+	@DiscoveryClient ----> 
+		Loadbalancer is ribbon 
+			.choose("ServiceName")
+
+
+
+How would i make the Monitoring and Ciruit Breaking 
+Hystrix family 
+
+Hystrix Dashboard 
+
+
+
+
+
+
+
+A new application 
+hystrix 
+actuator 
+web 
+devtools 
+
+
+@EnableHystrix /// http://host:port/actuator/hystrix.stream
+@EnableCircuitBreaker // @HystrixCommand (fallback="")
+
+
+Now create A new Class which act as your new webservice : 
+the service will be :- 
+a) @RestController 
+
+@RestController // marks it a service 
+public class VerifyService {
+	// you fallback method
+	public float getStandardScore() {
+		return 5.0f;
 	}
+	// request mapping 
+	@RequestMapping(path = "getscore", method = RequestMethod.GET)
+	@HystrixCommand(fallbackMethod = "getStandardScore")
+	public float getVerificationScore() {
+		//System.out.println(1 / 0);
+		return 10.2f;
+	}
+}
+
+
+
+/// Create a dashboard application ....... 
+hystrixDashboard 
+Devtools
+Actuator 
+
+In the class
+@EnableHystrixDashboard
+
+
+properties 
+
+server.port=7000
+spring.application.name=DASHAPP
+
+http://localhost:7000/hystrix
+
+
+
+http://localhost:8090/actuator/hystrix.stream
+
+
+
+
+
+create a new application 
+a) web
+b) actuator 
+c) devtools
+d) security 
+
+and service 
+
+spring.security.user.password=admin123456
+server.port 
+
+
+
+
+customizing using the spring beans (Configuration)
+
+@Configuration ---> 
+For security you will need to configure the implementation 
+by writing a class that extends  WebSecurityConfigurerAdapter
+
+it has 2 configure method 
+the first method is all about who ami where are the user 
+a) jdbc 
+b) in memory 
+c) ldap or what every you want 
+
+configure method is about what it can do 
+
+you will restrict the given resource based on 
+a) wildcard 
+b) absolute 
+c) and decide whether these urls can be accessed by 
+which roles or any body anuthenticate or are open to sky 
+
+For this both places we generaly DSL 
+http.
+
+
+
+====c=IN 
+		o=TSYS
+			|---ou = Cards 
+						|---cn=admins
+								|---uid=nilesh
+									inetOrgPerson 
+									
+
+uid=nilesh
+ 	subfileter cn=admins,ou=cards,o=tsys,c=in
+
+
+
+
+
+username : spark 
+password : spark 
+
+username : root 
+passsword : root123 
+
+
+
+
+
+
+FROM stakater/java8-alpine
+copy registryapp-1.0.jar  registryapp-1.0.jar
+EXPOSE 8761
+ENTRYPOINT  java -jar  registryapp-1.0.jar
+
+
+docker pull --> pulls a image from a image repository 
+docker create --> creates a new container from a image 
+				if image does not exist it will pull 
+docker start -> start a container which is already created 
+					and does not create a new contianer 
+
+docker run (THE COMMAND )
+docker run --> pull create start in single mode 
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+>   && chmod +x minikube
+// disable the swapp 
+swapoff -a
+
+#minikube start
+minikube start --vm-driver=none --apiserver-ips 127.0.0.1 --apiserver-name localhost
+
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+
+
+
+
+Docker Command 
+
+docker pull imageName 
+
+docker create --name <container-name> <image-name> 
+// this create a container 
+
+
+docker start   <container-name>  | <container-id>
+
+how do i know how many images i have locally ? 
+docker images 
+
+how do i know how many container runnign 
+docker ps 
+
+how do i know how many total containers i have both running and 
+	not running 
+docker ps -a 
+
+how do it delete container 
+docker rm  <container-name> | <Cintainer-id> 
+
+how do i delete  image 
+docker rmi  <imagename> | <imageid> 
+
+how do i copy a file from local to the container 
+docker cp 
+
+
+How to go in side a container ? 
+docker exec -it   containername | id    sh 
+
+
+how do execute command on the container and not interactive 
+docker exec  cntainername|id   command 
+
+
+
+how do i convert a container to image 
+first i create a container 
+i make the changes in the container 
+docker commit <cintainername> | <id> 
+
+docker tag <containername> | <id>   yourid/tag
+
+
+how do i push my image to the docker hub 
+a) the tag must be in the following format 
+			yourid/yourimagename
+
+b) docker login --> your id 
+c)  docker push  yourid/yourimagename 
+
+
+hwo to stop a contaier 
+docker stop <containername> | <id> 
+
+
+how to get overall status of containerr 
+docker top 
+
+how to get over information of the container 
+docker inspect <containerid> | <containername> 
+
+how to find over number of container images, and sizes and 
+stats 
+docker info
+
+
+how can i export a image --> from one machine to another 
+docker export 
+
+
+how can i import tar file which i export 
+
+how to search images from docker hub 
+docker search java 
+
+
+
+docker login 
+docker logout 
+
+
+
+
+how to find my node health for all the containers 
+docker stats 
+
+docker tag > 
+
+
+docker build is used wiht Dockerfile 
+dockerfile is automation way to build the docker image 
+
+
+version: "3.7"
+services:
+  webapp:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+      args:
+        buildno: 1
+
+
+
+version: "3.7"
+services:
+  registry:
+    image: registry
+    deploy:
+      replicas: 2
+  s1:
+    image: redis
+    deploy:
+      replicas: 3
+  s2:
+    image: nginx
+    deploy:
+      replicas: 2
+
+
+
+
+
+1. First generate a jar 
+
+2. 
+
+
+
+
+
+
+
+
+
+
+@RequestMapping(path="test/{st1}")
+addTest (@PathParam String st1 ){
 
 }
 
-tsc   abc.ts 
 
 
-How can i compile a ts 
+@RequestMapping(path="test")
+addTest (@QueryParam String st1 ){
 
-tsc filename.ts 
-
-
-How can i run a compiled ts (.js)
-
-node  filename.js 
+}
+http://localhost:port/test?st1=nilesh
 
 
-how can i  us a one class in another file 
-export class ClassName{} // this is the class that you wish to use 
+http://host:port/test/1000
 
 
-import {classnmae} from './classfile'
-
-import  className  from './classfile'
-in this case the class was default 
 
 
-i want 2 models 
-	User 
-	Group 
 
-i want DAO Controller 
-	
-	createUser(); 
 
-	listUsers(); 
 
-	i want to set the group for each user 
 
-and print the each user with it details 
 
-models 
-dao 
 
-a) import 
-b) how to export 
-c) how delcare classes 
-d) how to use constructors 
-e) how define varibale (object levels)
-f) how to invoke classes 
-g) how to invoke methods 
-h) how to use lambda 
-i) how to use namespaces 
-j) how to run the code 
-i) the method in doa come from an interface 
---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
